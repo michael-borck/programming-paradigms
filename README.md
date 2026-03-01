@@ -1,5 +1,9 @@
 # Calculator Program Showcase
 
+<!-- BADGES:START -->
+[![calculator](https://img.shields.io/badge/-calculator-blue?style=flat-square)](https://github.com/topics/calculator) [![cli-tool](https://img.shields.io/badge/-cli--tool-blue?style=flat-square)](https://github.com/topics/cli-tool) [![functional-programming](https://img.shields.io/badge/-functional--programming-blue?style=flat-square)](https://github.com/topics/functional-programming) [![imperative-programming](https://img.shields.io/badge/-imperative--programming-blue?style=flat-square)](https://github.com/topics/imperative-programming) [![object-oriented-programming](https://img.shields.io/badge/-object--oriented--programming-blue?style=flat-square)](https://github.com/topics/object-oriented-programming) [![programming-paradigms](https://img.shields.io/badge/-programming--paradigms-blue?style=flat-square)](https://github.com/topics/programming-paradigms) [![python](https://img.shields.io/badge/-python-3776ab?style=flat-square)](https://github.com/topics/python) [![edtech](https://img.shields.io/badge/-edtech-4caf50?style=flat-square)](https://github.com/topics/edtech) [![educational](https://img.shields.io/badge/-educational-blue?style=flat-square)](https://github.com/topics/educational) [![code-examples](https://img.shields.io/badge/-code--examples-blue?style=flat-square)](https://github.com/topics/code-examples)
+<!-- BADGES:END -->
+
 This repository contains three different implementations of a simple calculator program, each demonstrating a different programming paradigm: imperative, functional, and object-oriented.
 
 ## Table of Contents
