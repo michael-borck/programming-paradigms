@@ -1,0 +1,6 @@
+# macOS metadata junk (the repo lives on an external drive that spawns these)
+._*
+.DS_Store
+
+__pycache__/
+*.pyc

@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>One Calculator, Three Paradigms</title>
+  <meta name="description" content="The same 4-function calculator written in imperative, functional and object-oriented Python — run all three in your browser and see how each paradigm thinks.">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/pyodide/v0.27.7/full/pyodide.js"></script>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap">
+    <h1>One Calculator, <span class="grad">Three Paradigms</span></h1>
+    <p class="tagline">
+      The exact same 4-function calculator, written three ways.
+      Run all three <em>in your browser</em> &mdash; the page executes the actual
+      <code>calculator.py</code> files from
+      <a href="https://github.com/michael-borck/programming-paradigms">the repo</a>
+      with a real Python interpreter (WebAssembly, no server involved).
+    </p>
+    <p class="cta-row">
+      <a class="btn" href="#playground">Run the calculators</a>
+      <a class="btn ghost" href="#katas">Try the katas</a>
+    </p>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <!-- ============ PLAYGROUND ============ -->
+  <section id="playground">
+    <h2>The Playground</h2>
+    <p>
+      Pick an operation, hit <strong>Run all three</strong>, and watch what each paradigm
+      <em>does differently</em> with the very same numbers. Run a few in a row and watch
+      the <strong>state</strong> row &mdash; that&rsquo;s where the paradigms really diverge.
+    </p>
+
+    <div class="controls">
+      <div class="ops" role="group" aria-label="Operation">
+        <button class="op-btn active" data-op="add">a + b</button>
+        <button class="op-btn" data-op="subtract">a &minus; b</button>
+        <button class="op-btn" data-op="multiply">a &times; b</button>
+        <button class="op-btn" data-op="divide">a &divide; b</button>
+      </div>
+      <label>a <input type="number" id="input-a" value="6" step="any"></label>
+      <label>b <input type="number" id="input-b" value="2" step="any"></label>
+      <button id="run-btn" disabled>Loading Python&hellip;</button>
+      <button id="reset-btn" class="ghost" title="Clear the history of the functional and object-oriented versions">Reset state</button>
+    </div>
+
+    <div class="cards">
+      <article class="card" id="card-imperative">
+        <h3><span class="dot imp"></span>Imperative</h3>
+        <p class="sub">Tell the machine <em>how</em>, step by step</p>
+        <div class="io"><span class="lbl">call</span><code class="call">&mdash;</code></div>
+        <div class="io"><span class="lbl">result</span><code class="result">&mdash;</code></div>
+        <div class="io"><span class="lbl">state</span><code class="state">&mdash;</code></div>
+        <p class="note"></p>
+        <details class="src">
+          <summary>View annotated source</summary>
+          <div class="concepts"></div>
+          <pre><code class="language-python full-src"></code></pre>
+          <p class="gh-link"><a target="_blank" rel="noopener">Open on GitHub &nearr;</a></p>
+        </details>
+      </article>
+
+      <article class="card" id="card-functional">
+        <h3><span class="dot fun"></span>Functional</h3>
+        <p class="sub">Describe <em>what</em> with pure functions</p>
+        <div class="io"><span class="lbl">call</span><code class="call">&mdash;</code></div>
+        <div class="io"><span class="lbl">result</span><code class="result">&mdash;</code></div>
+        <div class="io"><span class="lbl">state</span><code class="state">&mdash;</code></div>
+        <p class="note"></p>
+        <details class="src">
+          <summary>View annotated source</summary>
+          <div class="concepts"></div>
+          <pre><code class="language-python full-src"></code></pre>
+          <p class="gh-link"><a target="_blank" rel="noopener">Open on GitHub &nearr;</a></p>
+        </details>
+      </article>
+
+      <article class="card" id="card_oop">
+        <h3><span class="dot oop"></span>Object-Oriented</h3>
+        <p class="sub">Bundle data + behaviour into objects</p>
+        <div class="io"><span class="lbl">call</span><code class="call">&mdash;</code></div>
+        <div class="io"><span class="lbl">result</span><code class="result">&mdash;</code></div>
+        <div class="io"><span class="lbl">state</span><code class="state">&mdash;</code></div>
+        <p class="note"></p>
+        <details class="src">
+          <summary>View annotated source</summary>
+          <div class="concepts"></div>
+          <pre><code class="language-python full-src"></code></pre>
+          <p class="gh-link"><a target="_blank" rel="noopener">Open on GitHub &nearr;</a></p>
+        </details>
+      </article>
+    </div>
+
+    <p class="fine" id="source-badge"></p>
+  </section>
+
+  <!-- ============ COMPARE ============ -->
+  <section id="compare">
+    <h2>So what&rsquo;s actually different?</h2>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th></th><th><span class="dot imp"></span>Imperative</th><th><span class="dot fun"></span>Functional</th><th><span class="dot oop"></span>Object-Oriented</th></tr>
+        </thead>
+        <tbody>
+          <tr><th>Core idea</th><td>Do this, then this, then this</td><td>Compute values from values</td><td>Objects own data + behaviour</td></tr>
+          <tr><th>Dispatch</th><td><code>if/elif</code> on a string</td><td>Dict of functions (<code>operators['1']</code>)</td><td>Method call on an object</td></tr>
+          <tr><th>History</th><td>None &mdash; result is forgotten</td><td>New tuple returned; old one untouched</td><td>Object mutates <code>self.history</code></td></tr>
+          <tr><th>Loop</th><td><code>while True</code></td><td>Recursion (<code>repl</code> calls itself)</td><td><code>while True</code></td></tr>
+          <tr><th>Watch out for</th><td>Logic and I/O get tangled as it grows</td><td>Recursion depth; takes a mindset shift</td><td>Shared mutable state; boilerplate for tiny programs</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- ============ KATAS ============ -->
+  <section id="katas">
+    <h2>Calculator Katas</h2>
+    <p>
+      A kata is a small exercise you repeat until the pattern sticks.
+      Clone the repo, work in a branch, and use the playground above to check your understanding.
+    </p>
+
+    <details class="kata">
+      <summary><strong>Kata 1 &middot; The Rewrite</strong> <span class="diff easy">warm-up</span></summary>
+      <div>
+        <p>Pick the paradigm you know <em>least</em>. Without looking at the repo version,
+        write the calculator from scratch: menu loop, four operations,
+        <code>Cannot divide by zero</code>, <code>q</code> to quit, <code>Goodbye</code> at the end.</p>
+        <p>Then diff your version against the repo&rsquo;s. Where did you improvise? Where did the paradigm force your hand?</p>
+        <details class="hint"><summary>Hint</summary><p>The spec fits in 30&ndash;90 lines in all three styles. If your functional version uses a <code>while</code> loop or your OO version has no class, start over &mdash; that&rsquo;s the point of the exercise.</p></details>
+      </div>
+    </details>
+
+    <details class="kata">
+      <summary><strong>Kata 2 &middot; Power Up</strong> <span class="diff easy">warm-up</span></summary>
+      <div>
+        <p>Add a fifth operation, <code>power(x, y) = x ** y</code>, to <strong>all three</strong> versions.
+        Count how many places you had to touch in each file.</p>
+        <p><strong>What to notice:</strong> functional needs a new <code>def</code> <em>plus one dict entry</em>;
+        imperative needs a <code>def</code> <em>plus another <code>elif</code> branch</em>;
+        OO needs <em>one method</em> (and a dispatch branch). Dispatch style decides how the program grows.</p>
+        <details class="hint"><summary>Hint</summary><p>In the functional version the menu validation lives in the same <code>operators</code> dict &mdash; add <code>'5': power</code> there and the menu entry. You never touch <code>calculate()</code>.</p></details>
+      </div>
+    </details>
+
+    <details class="kata">
+      <summary><strong>Kata 3 &middot; State Your Business</strong> <span class="diff mid">intermediate</span></summary>
+      <div>
+        <p>The imperative version forgets every result. Give it a history &mdash;
+        <strong>without using any global variables</strong>.</p>
+        <p><strong>What to notice:</strong> you&rsquo;ll end up passing the history in and returning a new one out&hellip;
+        which is exactly the functional approach. State has to live <em>somewhere</em>;
+        the paradigms differ in <em>who is allowed to hold it and who may change it</em>.</p>
+        <details class="hint"><summary>Hint</summary><p>Change <code>main()</code> to keep <code>history = []</code>, pass it into <code>calculate()</code>, and append there. Now ask yourself: who else can see that list? In the OO version the answer is &ldquo;only the object&rdquo;; in the functional version the answer is &ldquo;nobody can change it, ever&rdquo;.</p></details>
+      </div>
+    </details>
+
+    <details class="kata">
+      <summary><strong>Kata 4 &middot; Prove Immutability</strong> <span class="diff mid">intermediate</span></summary>
+      <div>
+        <p>Write a tiny test script (no framework needed) that proves the functional
+        <code>update_history</code> never mutates its input:</p>
+        <pre><code class="language-python">h1 = ()
+h2 = update_history(h1, 42)
+assert h1 == ()          # old history untouched
+assert h2 == (42,)</code></pre>
+        <p>Now try the equivalent experiment on the OO <code>calculator.history</code> list.
+        Can you make the same guarantee? Why not?</p>
+        <details class="hint"><summary>Hint</summary><p>Try <code>same = calculator.history</code> then call <code>calculator.add(1, 1)</code>. Did <code>same</code> change? That&rsquo;s aliasing &mdash; the reason mutable shared state needs discipline.</p></details>
+      </div>
+    </details>
+
+    <details class="kata">
+      <summary><strong>Kata 5 &middot; Data-Driven Dispatch</strong> <span class="diff hard">stretch</span></summary>
+      <div>
+        <p>The OO <code>main()</code> dispatches with <code>if/elif</code>. Replace it with a dict
+        mapping choice &rarr; bound method, the way the functional version maps choice &rarr; function:</p>
+        <pre><code class="language-python">actions = {
+    "1": calculator.add,
+    "2": calculator.subtract,
+    # ...
+}
+result = actions[choice](x, y)</code></pre>
+        <p><strong>What to notice:</strong> paradigms aren&rsquo;t walls, they&rsquo;re defaults.
+        Python lets you borrow the best trick from each &mdash; a bound method <em>is</em> a first-class function.</p>
+        <details class="hint"><summary>Hint</summary><p>Build the dict <em>after</em> creating <code>calculator</code> so the bound methods exist. Bonus: what breaks if you build it before?</p></details>
+      </div>
+    </details>
+  </section>
+
+  <!-- ============ HOW ============ -->
+  <section id="how">
+    <h2>How this page works</h2>
+    <p>
+      When you hit run, this page loads the exact
+      <a href="https://github.com/michael-borck/programming-paradigms/blob/main/imperative/calculator.py">imperative</a>,
+      <a href="https://github.com/michael-borck/programming-paradigms/blob/main/functional/calculator.py">functional</a> and
+      <a href="https://github.com/michael-borck/programming-paradigms/blob/main/object-oriented/calculator.py">object-oriented</a>
+      <code>calculator.py</code> files from the repo into
+      <a href="https://pyodide.org">Pyodide</a> (CPython compiled to WebAssembly), and calls into each
+      module the way its paradigm demands: a string choice for imperative, a function pulled from a dict
+      for functional, and a method on a <code>Calculator</code> instance for OO. Nothing is re-implemented
+      in JavaScript &mdash; the code you see is the code that runs. (The files are served from bundled
+      copies in <code>docs/paradigms/</code> so the site stays stable while the repo is experimented on.)
+    </p>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <p>
+      <a href="https://github.com/michael-borck/programming-paradigms">github.com/michael-borck/programming-paradigms</a>
+      &middot; MIT licensed &middot; contributions welcome
+    </p>
+  </div>
+</footer>
+
+<script src="app.js"></script>
+</body>
+</html>

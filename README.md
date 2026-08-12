@@ -6,6 +6,8 @@
 
 This repository contains three different implementations of a simple calculator program, each demonstrating a different programming paradigm: imperative, functional, and object-oriented.
 
+> **Try it in your browser:** [One Calculator, Three Paradigms](https://michael-borck.github.io/programming-paradigms/) — an interactive playground that runs all three implementations side-by-side (via WebAssembly), with annotated source and practice katas. No install needed.
+
 ## Table of Contents
 
 - [Calculator Program Showcase](#calculator-program-showcase)
@@ -14,6 +16,7 @@ This repository contains three different implementations of a simple calculator 
   - [Program Versions](#program-versions)
   - [How to Use](#how-to-use)
   - [Paradigm Overview](#paradigm-overview)
+  - [Website](#website)
   - [Contributing](#contributing)
   - [License](#license)
 
@@ -35,12 +38,12 @@ Each version provides the same core features, including addition, subtraction, m
 
 1. Clone the repository to your local machine:
 
-    git clone https://github.com/teaching-repositories/programming_paradigms
+    git clone https://github.com/michael-borck/programming-paradigms.git
 
 
 2. Navigate to the directory of the specific programming paradigm you want to explore:
 
-    cd programming_paradigms/imperative
+    cd programming-paradigms/imperative
 
 3. Run the calculator program using your preferred Python interpreter:
 
@@ -58,6 +61,10 @@ Each version provides the same core features, including addition, subtraction, m
 - **Functional Paradigm**: Emphasises "what" needs to be done by composing functions and avoiding side effects. It relies on immutability and higher-order functions.
 
 - **Object-Oriented Paradigm**: Organises code around objects that encapsulate data and behaviour. It promotes modularity and reusability through classes and inheritance.
+
+## Website
+
+The companion site is served by GitHub Pages from the [`docs/`](docs/) folder. It runs the three calculators in the browser with [Pyodide](https://pyodide.org) and includes five practice katas. If you edit any `calculator.py`, run `./scripts/sync-site.sh` to refresh the copies the site executes.
 
 ## Contributing
 
