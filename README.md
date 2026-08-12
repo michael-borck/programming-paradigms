@@ -1,5 +1,7 @@
 # Calculator Program Showcase
 
+**▶ [programmingparadigms.borck.education](https://programmingparadigms.borck.education/)** — run all three versions in your browser.
+
 <!-- BADGES:START -->
 [![calculator](https://img.shields.io/badge/-calculator-blue?style=flat-square)](https://github.com/topics/calculator) [![cli-tool](https://img.shields.io/badge/-cli--tool-blue?style=flat-square)](https://github.com/topics/cli-tool) [![functional-programming](https://img.shields.io/badge/-functional--programming-blue?style=flat-square)](https://github.com/topics/functional-programming) [![imperative-programming](https://img.shields.io/badge/-imperative--programming-blue?style=flat-square)](https://github.com/topics/imperative-programming) [![object-oriented-programming](https://img.shields.io/badge/-object--oriented--programming-blue?style=flat-square)](https://github.com/topics/object-oriented-programming) [![programming-paradigms](https://img.shields.io/badge/-programming--paradigms-blue?style=flat-square)](https://github.com/topics/programming-paradigms) [![python](https://img.shields.io/badge/-python-3776ab?style=flat-square)](https://github.com/topics/python) [![edtech](https://img.shields.io/badge/-edtech-4caf50?style=flat-square)](https://github.com/topics/edtech) [![educational](https://img.shields.io/badge/-educational-blue?style=flat-square)](https://github.com/topics/educational) [![code-examples](https://img.shields.io/badge/-code--examples-blue?style=flat-square)](https://github.com/topics/code-examples)
 <!-- BADGES:END -->
@@ -69,6 +71,13 @@ The companion site is served by GitHub Pages from the [`docs/`](docs/) folder. I
 ## Contributing
 
 Contributions are welcome! If you'd like to enhance or expand the calculator program for any of the paradigms, feel free to fork this repository and submit a pull request with your changes.
+
+## Related
+
+Part of [programming.borck.education](https://programming.borck.education), alongside the
+[Speak Software labs](https://programminglabs.borck.education),
+[Programming Toys](https://programmingtoys.borck.education), and the
+[HandsOnAI](https://handsonai.borck.education) toolkit.
 
 ## License
 
